@@ -44,11 +44,23 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Vue = __webpack_require__(1)
+	__webpack_require__(1);
+	module.exports = __webpack_require__(1);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Vue = __webpack_require__(2)
 
 	Vue.component('my-app', {
 	  props: ['lol'],  
 	  template: '<div> Lol {{lol}}</div>'
+	})
+
+	Vue.component('an-com', {    
+	  template: '<button></button>'
 	})
 
 	var app = new Vue({
@@ -63,7 +75,7 @@
 	})
 
 /***/ },
-/* 1 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
