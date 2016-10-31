@@ -81,13 +81,16 @@
 	    data: function(){
 	        return { 
 	            list: [1,2,3,4,5],
-	            customers: this.customers
+	            customers: this.customers,
+	            styleObject:{
+	                color:'blue'
+	            }
 	        }
 	    },
 	    template: `<div>
-	                <ul>
+	                <ul v-bind:style="styleObject">
 	                <template v-for="item in customers">                
-	                    <li>{{ item.name }}</li>                                
+	                    <li>{{ item.name }} - {{ item.email }} - {{ item.phone }}</li>                                
 	                </template>
 	                </ul>
 	              </div>`
