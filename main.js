@@ -2,7 +2,7 @@ var Vue = require('vue')
 
 Vue.component('my-app', {
   props: ['lol'],  
-  template: '<div> Lol </div>'
+  template: '<div> Lol {{lol}}</div>'
 })
 
 var app = new Vue({
