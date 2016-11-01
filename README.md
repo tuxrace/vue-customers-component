@@ -1,7 +1,7 @@
 # Vue Customers Component
 A customers component using Vue.js
 
-### Installation    
+## Installation    
     npm install
     npm start
     localhost:8080
