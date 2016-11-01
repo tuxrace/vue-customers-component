@@ -54,64 +54,48 @@
 
 	var Vue = __webpack_require__(2)
 
-	Vue.component('my-app', {
-	  props: ['lol','ice'],  
-	  filters:{
-	      dash: (val) => {          
-	          return `${val} --`
-	      }
-	  },
-	  template: '<div>{{lol | dash}} {{ice | dash}}</div>'
-	})
+	Vue.component('cu-button',{
+	    props:['event','cap'],        
+	    template: `<button v-on:click=event> {{cap}} </button>`
+	});
 
-
-	Vue.component('listing', {
-	    props: ['item'],
-	    template: '<ul>{{item}}</ul>'
-	})
-
-	Vue.component('nice-com',{
-	    mounted: function () {     
-	        fetch('https://jsonplaceholder.typicode.com/users')
-	        .then(r => r.json())
-	        .then(r => {
-	            this.customers = r
-	        })                   
+	Vue.component('item',{
+	    props:['name'],
+	    data:function(){
+	        return {}
 	    },
-	    data: function(){
-	        return { 
-	            list: [1,2,3,4,5],
-	            customers: this.customers,
-	            styleObject:{
-	                color:'blue'
-	            }
+	    methods:{
+
+	    },
+	    template:`<div>{{name}} <button>x</button></div>`
+	});
+
+	Vue.component('customers',{
+	    data:function(){
+	        return {
+	            customers: ['x','g','r','a','e']
+	        }
+	    },
+	    methods:{
+	        sort:function(){
+	            this.customers.sort();
+	        },
+	        first: function(){
+	            this.customers.splice(0,1);
 	        }
 	    },
 	    template: `<div>
-	                <ul v-bind:style="styleObject">
-	                <template v-for="item in customers">                
-	                    <li>{{ item.name }} - {{ item.email }} - {{ item.phone }}</li>                                
-	                </template>
-	                </ul>
-	              </div>`
-	})
-
-	Vue.component('an-com', {    
-	  methods:{
-	      handleClick: () => {
-	          alert('lol')
-	      },
-	      openWindow: () => {
-	          window.open('http://www.google.com')
-	      }
-	  },
-	  template: '<button v-on:click="openWindow">Click</button>'
-	})
-
+	                  <cu-button cap="Sort" v-bind:event=sort></cu-button>
+	                  <cu-button cap="First" v-bind:event=first></cu-button>
+	                  <ul v-for="c in customers">
+	                    <item :name=c></item>
+	                  </ul>
+	               </div>`
+	});
 
 	var app = new Vue({
-	  el: '#app'
-	})
+	    el:'#app'
+	});
 
 /***/ },
 /* 2 */
