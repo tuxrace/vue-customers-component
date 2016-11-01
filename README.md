@@ -1,5 +1,5 @@
-# Vue Cutosmers Component
-## A customers component using Vue.js
+# Vue Customers Component
+A customers component using Vue.js
 
 ### Installation    
     npm install

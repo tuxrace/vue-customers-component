@@ -77,7 +77,7 @@
 	    },
 	    methods:{
 	        sort:function(){                        
-	            this.customers.sort(function(a, b) {
+	            this.customers.sort((a, b) => {
 	                var na = a.name.toUpperCase(); 
 	                var nb = b.name.toUpperCase(); 
 	                if (na < nb) 
